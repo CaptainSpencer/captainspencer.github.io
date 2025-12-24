@@ -7,15 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title id="page-title">Portfolio | Spencer Dewbury</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
+    @font-face {
+      font-family: 'SpencerFont';
+      src: url('SpencerFont-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     :root {
       --bg-crimson: #3b1c1c;
       --text-glow: #fce8d5;
       --accent: #e76f51;
       --shadow: #1a0b0b;
       --pixel-border: #5e2b1d;
-      --font-pixel: 'Press Start 2P', cursive;
+      --font-pixel: 'SpencerFont', sans-serif;
     }
 
     html, body {
@@ -130,6 +137,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+
   <script>
     const titleFrames = ["Portfolio | Spencer Dewbury", "Portfolio ✨ Spencer Dewbury"];
     let current = 0;
