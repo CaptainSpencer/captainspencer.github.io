@@ -6,14 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Spencer Dewbury</title>
   <link rel="icon" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
+    /* Custom Spencer font */
+    @font-face {
+      font-family: "SpencerFont";
+      src: url("SpencerFont-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
     :root {
       --forest-dark: #081f1d;
       --mushroom-glow: #61e294;
       --text-glow: #c5f9e5;
       --border-brown: #3e1f0e;
-      --font-pixel: 'Press Start 2P', cursive;
+      --font-pixel: "SpencerFont", sans-serif;
     }
 
     html, body {
@@ -160,15 +168,15 @@
   </header>
 
   <div class="container">
-   <h1>About Me</h1>
-<div class="about-flex">
-  <div class="about-text">
-    <p>I’m a freelance journalist covering underground music, internet culture, and local stories that matter. My work ranges from artist interviews and scene reporting to long-form features, with a focus on voice, honesty, and the details that give subcultures their shape.</p>
-    <p>In my free time, I listen to underground rap and get lost in internet culture and current events.</p>
-    <div class="button-wrapper">
-      <a href="portfolio.html" class="pixel-button">SEE MY WORK</a>
-    </div>
-  </div>
+    <h1>About Me</h1>
+    <div class="about-flex">
+      <div class="about-text">
+        <p>I’m a freelance journalist covering underground music, internet culture, and local stories that matter. My work ranges from artist interviews and scene reporting to long-form features, with a focus on voice, honesty, and the details that give subcultures their shape.</p>
+        <p>In my free time, I listen to underground rap and get lost in internet culture and current events.</p>
+        <div class="button-wrapper">
+          <a href="portfolio.html" class="pixel-button">SEE MY WORK</a>
+        </div>
+      </div>
       <div class="sprite">
         <img src="spencer_sprite.png" alt="Spencer sprite">
       </div>
@@ -176,6 +184,12 @@
   </div>
 
   <footer>
+    &copy; 2025 Spencer Dewbury — All rights reserved.
+  </footer>
+
+</body>
+</html>
+
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
 
