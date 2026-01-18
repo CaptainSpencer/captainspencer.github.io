@@ -4,39 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spencer Dewbury | Home</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" href="favicon.png">
 
   <style>
-    /* ================= FONTS ================= */
-    @font-face {
-      font-family: "SpencerFont";
-      src: url("SpencerFont-Regular.ttf") format("truetype");
-    }
-
+    /* ===== FONTS ===== */
     @font-face {
       font-family: "Ughing";
       src: url("Ughing-Regular.ttf") format("truetype");
     }
 
-    /* ================= RESET ================= */
+    @font-face {
+      font-family: "SpencerFont";
+      src: url("SpencerFont-Regular.ttf") format("truetype");
+    }
+
+    /* ===== RESET ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      image-rendering: pixelated;
-    }
-
-    /*
-      Cursor hotspot explanation:
-      - resting: point is slightly left of center near top
-      - pointer: similar alignment
-    */
-    html {
-      cursor: url("cursor_resting.png") 22 24, auto;
-    }
-
-    a, button {
-      cursor: url("cursor_pointer.png") 22 24, pointer;
     }
 
     body {
@@ -57,78 +43,51 @@
       min-height: 100vh;
     }
 
-    /* ================= LAYOUT ================= */
     .content {
       max-width: 900px;
       width: 90%;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    /* ================= TITLE ================= */
-    .title {
+    /* ===== LOGO ===== */
+    .logo {
       font-family: "Ughing", sans-serif;
-      font-size: clamp(3.6rem, 8vw, 6.2rem);
-      letter-spacing: -0.09em;
-      line-height: 0.92;
+      line-height: 0.86;
       margin-top: 3rem;
-      margin-bottom: 1.1rem;
-
-      color: #4f73ff;
-      -webkit-text-stroke: 6px #000;
-      paint-order: stroke fill;
-
-      text-shadow: 4px 4px 0 #000;
       user-select: none;
     }
 
-    /* Per-letter interaction */
-    .title span {
+    .logo span {
       display: inline-block;
-      transition: transform 0.15s ease;
+      font-size: clamp(3.8rem, 8vw, 6rem);
+      letter-spacing: -0.06em;
+      color: #4F69F6;
+      -webkit-text-stroke: 3px #000;
+      text-shadow: 3px 3px 0 #000;
       will-change: transform;
+      transition: transform 0.18s ease-out;
     }
 
-    .title span:hover {
-      transform: translateY(-6px) rotate(-2deg);
-    }
-
-    /* ================= TEXT ================= */
+    /* ===== TEXT ===== */
     .new-subheader-text {
+      margin-top: 1.1rem;
       font-size: 1rem;
-      margin-bottom: 6px;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
     }
 
     .bio-text {
-      font-size: 0.95rem;
-      line-height: 1.5;
       max-width: 720px;
-      margin-bottom: 1rem;
+      margin: 0.6rem auto 1.2rem;
+      line-height: 1.5;
       text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
     }
 
-    /* ================= BUTTONS ================= */
-    .explore-button-row {
-      margin-top: 10px;
-      margin-bottom: -12px;
-    }
-
-    .sub-button-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: -20px;
-    }
-
+    /* ===== BUTTONS ===== */
     .button-img {
-      height: 300px;
-      max-width: 800px;
+      height: 280px;
       transition: transform 0.1s ease-out;
       display: block;
+      margin: 0 auto;
     }
 
     .button-img:hover {
@@ -136,23 +95,15 @@
     }
 
     footer {
-      text-align: center;
+      margin-top: auto;
+      padding: 10px;
       font-size: 0.7rem;
       color: #aaa;
-      padding: 10px 0;
-      width: 100%;
-      margin-top: -50px;
     }
 
-    /* ================= MOBILE ================= */
     @media (max-width: 768px) {
       .button-img {
-        height: 260px;
-        max-width: 95%;
-      }
-
-      footer {
-        margin-top: -30px;
+        height: 240px;
       }
     }
   </style>
@@ -161,42 +112,68 @@
 <body>
   <main class="content">
 
-    <h1 class="title">
-      <span>S</span><span>P</span><span>E</span><span>N</span><span>C</span><span>E</span><span>R</span><br>
-      <span>D</span><span>E</span><span>W</span><span>B</span><span>U</span><span>R</span><span>Y</span>
-    </h1>
+    <!-- LOGO -->
+    <div class="logo" id="logo">
+      <div class="logo-line">SPENCER</div>
+      <div class="logo-line">DEWBURY</div>
+    </div>
 
     <p class="new-subheader-text">
       Music Journalist. News. Celebrity Interviews.
     </p>
 
     <p class="bio-text">
-      I'm Spencer Dewbury — a published journalist with a pulse on underground music,
-      local news, and the voices shaping internet culture.
+      I'm Spencer Dewbury — a published journalist covering underground music,
+      internet culture, and local stories that matter.
     </p>
 
-    <div class="explore-button-row">
-      <a href="portfolio.html">
-        <img src="explore_button_equalized.png" alt="Explore My Work" class="button-img">
-      </a>
-    </div>
-
-    <div class="sub-button-row">
-      <a href="about.html">
-        <img src="about_button_cleaned.png" alt="About Me" class="button-img">
-      </a>
-      <a href="contact.html">
-        <img src="contact_button_cleaned.png" alt="Contact" class="button-img">
-      </a>
-      <a href="blog.html">
-        <img src="blog_button.png" alt="Blog" class="button-img">
-      </a>
-    </div>
+    <a href="portfolio.html">
+      <img src="explore_button_equalized.png" class="button-img" alt="Explore My Work">
+    </a>
 
   </main>
 
   <footer>
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
+
+  <!-- PUSH-AWAY LETTER PHYSICS (RESTORED) -->
+  <script>
+    const logo = document.getElementById("logo");
+    const letters = [];
+
+    logo.querySelectorAll(".logo-line").forEach(line => {
+      const text = line.textContent;
+      line.textContent = "";
+
+      [...text].forEach(char => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        line.appendChild(span);
+        letters.push(span);
+      });
+    });
+
+    document.addEventListener("mousemove", e => {
+      letters.forEach(letter => {
+        const rect = letter.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+
+        const dx = cx - e.clientX;
+        const dy = cy - e.clientY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 90) {
+          const force = (90 - dist) / 6;
+          const x = (dx / dist) * force;
+          const y = (dy / dist) * force;
+          letter.style.transform = `translate(${x}px, ${y}px)`;
+        } else {
+          letter.style.transform = "translate(0, 0)";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
