@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spencer Dewbury | Home</title>
@@ -27,12 +26,16 @@
 
     body {
       background-color: #0d1b2a;
-      background-image: url('pixel_banner.png'), url('https://www.transparenttextures.com/patterns/stardust.png');
+      background-image:
+        url('pixel_banner.png'),
+        url('https://www.transparenttextures.com/patterns/stardust.png');
       background-size: cover, 200px 200px;
       background-repeat: no-repeat, repeat;
       background-attachment: fixed;
+
       font-family: "SpencerFont", sans-serif;
       color: #ffffff;
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -48,12 +51,12 @@
       align-items: center;
     }
 
-    /* === TITLE REPLACEMENT (MATCHES PNG FOOTPRINT) === */
+    /* === TITLE (MATCHES PNG FOOTPRINT) === */
     .main-title-text {
       font-family: "Ughing", sans-serif;
       width: 100%;
       max-width: 500px;
-      height: 180px; /* fixed box to preserve spacing */
+      height: 180px; /* preserves spacing */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -70,6 +73,8 @@
       color: #4F69F6;
       -webkit-text-stroke: 3px #000;
       text-shadow: 3px 3px 0 #000;
+      will-change: transform;
+      transition: transform 0.18s ease-out;
     }
 
     .content-below-logo {
@@ -83,7 +88,7 @@
     .new-subheader-text {
       font-size: 1rem;
       color: #ffffff;
-      text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
       margin-bottom: 4px;
     }
 
@@ -94,7 +99,7 @@
       max-width: 700px;
       padding: 0 10px;
       margin-bottom: 0;
-      text-shadow: 1px 1px 0px rgba(0,0,0,0.25);
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
     }
 
     .explore-button-row {
@@ -138,22 +143,14 @@
 
       .new-subheader-text {
         font-size: 0.85rem;
-        margin-bottom: 2px;
       }
 
       .bio-text {
         font-size: 0.85rem;
-        margin-bottom: 0;
       }
 
       .button-img {
         height: 260px;
-        max-width: 95%;
-      }
-
-      .sub-button-row {
-        gap: 6px;
-        margin-top: -15px;
       }
 
       footer {
@@ -166,10 +163,10 @@
 <body>
   <main class="content">
 
-    <!-- TEXT TITLE (REPLACES IMAGE ONLY) -->
-    <div class="main-title-text">
-      <span>SPENCER</span>
-      <span>DEWBURY</span>
+    <!-- TEXT TITLE -->
+    <div class="main-title-text" id="logo">
+      <div class="logo-line">SPENCER</div>
+      <div class="logo-line">DEWBURY</div>
     </div>
 
     <div class="content-below-logo">
@@ -181,19 +178,19 @@
 
       <div class="explore-button-row">
         <a href="portfolio.html">
-          <img src="explore_button_equalized.png" alt="Explore My Work" class="button-img" />
+          <img src="explore_button_equalized.png" class="button-img" alt="Explore My Work">
         </a>
       </div>
 
       <div class="sub-button-row">
         <a href="about.html">
-          <img src="about_button_cleaned.png" alt="About Me" class="button-img" />
+          <img src="about_button_cleaned.png" class="button-img" alt="About Me">
         </a>
         <a href="contact.html">
-          <img src="contact_button_cleaned.png" alt="Contact" class="button-img" />
+          <img src="contact_button_cleaned.png" class="button-img" alt="Contact">
         </a>
         <a href="blog.html">
-          <img src="blog_button.png" alt="Read My Blog" class="button-img" />
+          <img src="blog_button.png" class="button-img" alt="Read My Blog">
         </a>
       </div>
     </div>
@@ -202,5 +199,43 @@
   <footer>
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
+
+  <!-- === LETTER PUSH ANIMATION (BACK) === -->
+  <script>
+    const logo = document.getElementById("logo");
+    const letters = [];
+
+    logo.querySelectorAll(".logo-line").forEach(line => {
+      const text = line.textContent;
+      line.textContent = "";
+
+      [...text].forEach(char => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        line.appendChild(span);
+        letters.push(span);
+      });
+    });
+
+    document.addEventListener("mousemove", e => {
+      letters.forEach(letter => {
+        const rect = letter.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+
+        const dx = cx - e.clientX;
+        const dy = cy - e.clientY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 100) {
+          const force = (100 - dist) / 5;
+          letter.style.transform =
+            `translate(${(dx / dist) * force}px, ${(dy / dist) * force}px)`;
+        } else {
+          letter.style.transform = "translate(0,0)";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
