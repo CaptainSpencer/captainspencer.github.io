@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
+    /* ===== FONTS ===== */
     @font-face {
       font-family: "Ughing";
       src: url("Ughing-Regular.ttf") format("truetype");
@@ -20,7 +21,6 @@
     * {
       box-sizing: border-box;
       image-rendering: pixelated;
-      cursor: url('cursor.png') 13 16, auto;
     }
 
     body {
@@ -54,15 +54,20 @@
     .logo {
       margin-top: 2.2rem;
       line-height: 0.82;
-      font-family: "Ughing", sans-serif;
       user-select: none;
+      font-family: "Ughing", sans-serif;
     }
 
-    .logo-line span {
+    .logo-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .logo span {
       display: inline-block;
       font-size: clamp(3.5rem, 8vw, 5.5rem);
       letter-spacing: -0.05em;
-      color: #4F69F6;
+      color: #7088fc;
       -webkit-text-stroke: 3px #000;
       text-shadow: 3px 3px 0 #000;
       transition: transform 0.2s ease-out;
@@ -72,10 +77,12 @@
     /* ===== BELOW LOGO ===== */
 
     .content-below-logo {
-      margin-top: -6px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+      margin-top: -6px; /* matches PNG spacing */
+      font-family: "SpencerFont", sans-serif;
     }
 
     .new-subheader-text {
@@ -94,25 +101,27 @@
 
     /* ===== EXPLORE TEXT BUTTON ===== */
 
-    .explore-text {
+    .explore-button-row {
       margin-top: 18px;
+      margin-bottom: 10px;
+    }
+
+    .explore-text {
       font-family: "Ughing", sans-serif;
+      font-size: 2.6rem;
+      letter-spacing: -0.03em;
+      color: #7088fc;
+      -webkit-text-stroke: 2px #fff;
+      text-shadow: 3px 3px 0 #000;
+      text-decoration: none;
+      display: inline-block;
       user-select: none;
     }
 
     .explore-text span {
       display: inline-block;
-      font-size: clamp(2.2rem, 6vw, 3.2rem);
-      letter-spacing: -0.03em;
-      color: #7088fc;
-      -webkit-text-stroke: 2px #ffffff;
-      text-shadow: 2px 2px 0 #ffffff;
       transition: transform 0.2s ease-out;
       will-change: transform;
-    }
-
-    .explore-text a {
-      text-decoration: none;
     }
 
     .sub-button-row {
@@ -135,21 +144,33 @@
     }
 
     footer {
+      text-align: center;
       font-size: 0.7rem;
       color: #aaa;
       padding: 10px 0;
+      width: 100%;
       margin-top: auto;
+      font-family: "SpencerFont", sans-serif;
     }
 
     @media (max-width: 768px) {
-      .logo-line span {
+      .logo span {
         -webkit-text-stroke: 2px #000;
         text-shadow: 2px 2px 0 #000;
       }
 
-      .explore-text span {
-        -webkit-text-stroke: 1.5px #fff;
-        text-shadow: 1.5px 1.5px 0 #fff;
+      .explore-text {
+        font-size: 2.1rem;
+      }
+
+      .new-subheader-text,
+      .bio-text {
+        font-size: 0.85rem;
+      }
+
+      .button-img {
+        height: 260px;
+        max-width: 95%;
       }
     }
   </style>
@@ -159,7 +180,7 @@
   <main class="content">
 
     <!-- LOGO -->
-    <div class="logo" id="logo">
+    <div class="logo">
       <div class="logo-line">SPENCER</div>
       <div class="logo-line">DEWBURY</div>
     </div>
@@ -171,15 +192,23 @@
         local news coverage, and conversations with the voices shaping culture.
       </p>
 
-      <!-- EXPLORE TEXT BUTTON -->
-      <div class="explore-text" id="explore">
-        <a href="portfolio.html">EXPLORE MY WORK PORTFOLIO!</a>
+      <!-- EXPLORE TEXT -->
+      <div class="explore-button-row">
+        <a href="portfolio.html" class="explore-text" id="explore">
+          EXPLORE MY WORK
+        </a>
       </div>
 
       <div class="sub-button-row">
-        <a href="about.html"><img src="about_button_cleaned.png" class="button-img"></a>
-        <a href="contact.html"><img src="contact_button_cleaned.png" class="button-img"></a>
-        <a href="blog.html"><img src="blog_button.png" class="button-img"></a>
+        <a href="about.html">
+          <img src="about_button_cleaned.png" alt="About Me" class="button-img" />
+        </a>
+        <a href="contact.html">
+          <img src="contact_button_cleaned.png" alt="Contact" class="button-img" />
+        </a>
+        <a href="blog.html">
+          <img src="blog_button.png" alt="Read My Blog" class="button-img" />
+        </a>
       </div>
     </div>
   </main>
@@ -188,41 +217,48 @@
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
 
-  <!-- INTERACTION SCRIPT -->
+  <!-- LETTER INTERACTION (ARCHITECTURALLY CORRECT) -->
   <script>
-    function splitAndAnimate(containerId) {
-      const container = document.getElementById(containerId);
+    function splitLine(el) {
       const spans = [];
-      const text = container.textContent;
-      container.textContent = "";
+      const text = el.textContent;
+      el.textContent = "";
 
       [...text].forEach(char => {
         const span = document.createElement("span");
         span.textContent = char === " " ? "\u00A0" : char;
-        container.appendChild(span);
+        el.appendChild(span);
         spans.push(span);
       });
 
-      document.addEventListener("mousemove", e => {
-        spans.forEach(letter => {
-          const r = letter.getBoundingClientRect();
-          const dx = r.left + r.width / 2 - e.clientX;
-          const dy = r.top + r.height / 2 - e.clientY;
-          const dist = Math.hypot(dx, dy);
-
-          if (dist < 85) {
-            const force = (85 - dist) / 6;
-            letter.style.transform =
-              `translate(${dx / dist * force}px, ${dy / dist * force}px)`;
-          } else {
-            letter.style.transform = "translate(0,0)";
-          }
-        });
-      });
+      return spans;
     }
 
-    splitAndAnimate("logo");
-    splitAndAnimate("explore");
+    const animatedLetters = [];
+
+    document.querySelectorAll(".logo-line").forEach(line => {
+      animatedLetters.push(...splitLine(line));
+    });
+
+    const explore = document.getElementById("explore");
+    animatedLetters.push(...splitLine(explore));
+
+    document.addEventListener("mousemove", e => {
+      animatedLetters.forEach(letter => {
+        const r = letter.getBoundingClientRect();
+        const dx = r.left + r.width / 2 - e.clientX;
+        const dy = r.top + r.height / 2 - e.clientY;
+        const dist = Math.hypot(dx, dy);
+
+        if (dist < 90) {
+          const force = (90 - dist) / 6;
+          letter.style.transform =
+            `translate(${dx / dist * force}px, ${dy / dist * force}px)`;
+        } else {
+          letter.style.transform = "translate(0,0)";
+        }
+      });
+    });
   </script>
 </body>
 </html>
