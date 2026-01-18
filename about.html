@@ -75,23 +75,21 @@
       flex: 1;
     }
 
-    .about-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .about-text {
-      flex: 1;
-    }
-
     h1 {
       color: var(--mushroom-glow);
       font-size: 1.2rem;
       text-shadow: 2px 2px #000;
       margin-bottom: 2rem;
       text-align: center;
+    }
+
+    .about-flex {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-text {
+      max-width: 520px;
     }
 
     p {
@@ -122,17 +120,6 @@
       margin-top: 1.5rem;
     }
 
-    .sprite {
-      flex-shrink: 0;
-    }
-
-    .sprite img {
-      width: 256px;
-      height: auto;
-      image-rendering: pixelated;
-      display: block;
-    }
-
     footer {
       text-align: center;
       font-size: 0.5rem;
@@ -143,14 +130,8 @@
     }
 
     @media (max-width: 700px) {
-      .about-flex {
-        flex-direction: column;
-        align-items: center;
+      .about-text {
         text-align: center;
-      }
-      .sprite img {
-        width: 192px;
-        margin-top: 1.5rem;
       }
     }
   </style>
@@ -177,19 +158,10 @@
           <a href="portfolio.html" class="pixel-button">SEE MY WORK</a>
         </div>
       </div>
-      <div class="sprite">
-        <img src="spencer_sprite.png" alt="Spencer sprite">
-      </div>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Spencer Dewbury — All rights reserved.
-  </footer>
-
-</body>
-</html>
-
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
 
