@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spencer Dewbury | Home</title>
-  <link rel="icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
     /* ===== FONTS ===== */
@@ -18,11 +18,11 @@
       src: url("SpencerFont-Regular.ttf") format("truetype");
     }
 
-    /* ===== RESET ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      image-rendering: pixelated;
     }
 
     body {
@@ -44,50 +44,77 @@
     }
 
     .content {
-      max-width: 900px;
+      max-width: 800px;
       width: 90%;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* ===== LOGO ===== */
+    /* ===== TEXT LOGO (REPLACES PNG, SAME POSITION) ===== */
     .logo {
       font-family: "Ughing", sans-serif;
-      line-height: 0.86;
-      margin-top: 3rem;
+      line-height: 0.82;
+      margin-bottom: 0;
       user-select: none;
     }
 
     .logo span {
       display: inline-block;
-      font-size: clamp(3.8rem, 8vw, 6rem);
-      letter-spacing: -0.06em;
+      font-size: clamp(4rem, 9vw, 5.6rem);
+      letter-spacing: -0.05em;
       color: #4F69F6;
       -webkit-text-stroke: 3px #000;
       text-shadow: 3px 3px 0 #000;
+      transition: transform 0.2s ease-out;
       will-change: transform;
-      transition: transform 0.18s ease-out;
     }
 
-    /* ===== TEXT ===== */
+    .content-below-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: -70px; /* ORIGINAL OVERLAP */
+    }
+
     .new-subheader-text {
-      margin-top: 1.1rem;
       font-size: 1rem;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+      color: #ffffff;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+      margin-bottom: 4px;
     }
 
     .bio-text {
-      max-width: 720px;
-      margin: 0.6rem auto 1.2rem;
+      font-size: 0.95rem;
       line-height: 1.5;
+      color: #ffffff;
+      max-width: 700px;
+      padding: 0 10px;
+      margin-bottom: 0;
       text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
     }
 
-    /* ===== BUTTONS ===== */
+    .explore-button-row {
+      margin-top: 10px;
+      margin-bottom: -12px;
+    }
+
+    .sub-button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: -20px;
+    }
+
     .button-img {
-      height: 280px;
+      width: auto;
+      height: 300px;
+      max-width: 800px;
       transition: transform 0.1s ease-out;
       display: block;
-      margin: 0 auto;
     }
 
     .button-img:hover {
@@ -95,15 +122,40 @@
     }
 
     footer {
-      margin-top: auto;
-      padding: 10px;
+      text-align: center;
       font-size: 0.7rem;
       color: #aaa;
+      padding: 10px 0;
+      width: 100%;
+      margin-top: -50px;
     }
 
     @media (max-width: 768px) {
+      .content-below-logo {
+        margin-top: -40px;
+      }
+
+      .new-subheader-text {
+        font-size: 0.85rem;
+        margin-bottom: 2px;
+      }
+
+      .bio-text {
+        font-size: 0.85rem;
+      }
+
       .button-img {
-        height: 240px;
+        height: 260px;
+        max-width: 95%;
+      }
+
+      .sub-button-row {
+        gap: 6px;
+        margin-top: -15px;
+      }
+
+      footer {
+        margin-top: -30px;
       }
     }
   </style>
@@ -112,32 +164,55 @@
 <body>
   <main class="content">
 
-    <!-- LOGO -->
+    <!-- TEXT LOGO -->
     <div class="logo" id="logo">
       <div class="logo-line">SPENCER</div>
       <div class="logo-line">DEWBURY</div>
     </div>
 
-    <p class="new-subheader-text">
-      Music Journalist. News. Celebrity Interviews.
-    </p>
+    <div class="content-below-logo">
+      <p class="new-subheader-text">
+        Music Journalist. News. Celebrity Interviews.
+      </p>
 
-    <p class="bio-text">
-      I'm Spencer Dewbury — a published journalist covering underground music,
-      internet culture, and local stories that matter.
-    </p>
+      <p class="bio-text">
+        I'm Spencer Dewbury: Published journalist with a pulse on music journalism,
+        local news coverage, and conversations with the voices shaping culture.
+      </p>
 
-    <a href="portfolio.html">
-      <img src="explore_button_equalized.png" class="button-img" alt="Explore My Work">
-    </a>
+      <div class="explore-button-row">
+        <a href="portfolio.html">
+          <img src="explore_button_equalized.png"
+               alt="Explore My Work"
+               class="button-img" />
+        </a>
+      </div>
 
+      <div class="sub-button-row">
+        <a href="about.html">
+          <img src="about_button_cleaned.png"
+               alt="About Me"
+               class="button-img" />
+        </a>
+        <a href="contact.html">
+          <img src="contact_button_cleaned.png"
+               alt="Contact"
+               class="button-img" />
+        </a>
+        <a href="blog.html">
+          <img src="blog_button.png"
+               alt="Read My Blog"
+               class="button-img" />
+        </a>
+      </div>
+    </div>
   </main>
 
   <footer>
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
 
-  <!-- PUSH-AWAY LETTER PHYSICS (RESTORED) -->
+  <!-- LOGO PUSH INTERACTION -->
   <script>
     const logo = document.getElementById("logo");
     const letters = [];
@@ -166,9 +241,8 @@
 
         if (dist < 90) {
           const force = (90 - dist) / 6;
-          const x = (dx / dist) * force;
-          const y = (dy / dist) * force;
-          letter.style.transform = `translate(${x}px, ${y}px)`;
+          letter.style.transform =
+            `translate(${(dx / dist) * force}px, ${(dy / dist) * force}px)`;
         } else {
           letter.style.transform = "translate(0, 0)";
         }
