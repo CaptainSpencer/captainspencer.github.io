@@ -7,28 +7,39 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
-    @font-face {
-      font-family: "Ughing";
-      src: url("Ughing-Regular.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-    }
-
+    /* ================= FONTS ================= */
     @font-face {
       font-family: "SpencerFont";
       src: url("SpencerFont-Regular.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
     }
 
+    @font-face {
+      font-family: "Ughing";
+      src: url("Ughing-Regular.ttf") format("truetype");
+    }
+
+    /* ================= RESET ================= */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       image-rendering: pixelated;
-      cursor: url('cursor.png') 13 16, auto;
+    }
+
+    /*
+      Cursor hotspot explanation:
+      - resting: point is slightly left of center near top
+      - pointer: similar alignment
+    */
+    html {
+      cursor: url("cursor_resting.png") 22 24, auto;
+    }
+
+    a, button {
+      cursor: url("cursor_pointer.png") 22 24, pointer;
     }
 
     body {
-      margin: 0;
       background-color: #0d1b2a;
       background-image:
         url('pixel_banner.png'),
@@ -36,14 +47,17 @@
       background-size: cover, 200px 200px;
       background-repeat: no-repeat, repeat;
       background-attachment: fixed;
+
       font-family: "SpencerFont", sans-serif;
       color: #ffffff;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
     }
 
+    /* ================= LAYOUT ================= */
     .content {
       max-width: 900px;
       width: 90%;
@@ -53,43 +67,35 @@
       align-items: center;
     }
 
-    /* ===== TEXT LOGO ===== */
-
-    .logo {
-      margin-top: 2.2rem;
-      line-height: 0.82; /* tighter vertical spacing */
-      user-select: none;
+    /* ================= TITLE ================= */
+    .title {
       font-family: "Ughing", sans-serif;
+      font-size: clamp(3.6rem, 8vw, 6.2rem);
+      letter-spacing: -0.09em;
+      line-height: 0.92;
+      margin-top: 3rem;
+      margin-bottom: 1.1rem;
+
+      color: #4f73ff;
+      -webkit-text-stroke: 6px #000;
+      paint-order: stroke fill;
+
+      text-shadow: 4px 4px 0 #000;
+      user-select: none;
     }
 
-    .logo-line {
-      display: block;
-      white-space: nowrap;
-      margin: 0;
-    }
-
-    .logo span {
+    /* Per-letter interaction */
+    .title span {
       display: inline-block;
-      font-size: clamp(3.5rem, 8vw, 5.5rem);
-      letter-spacing: -0.05em; /* tighter letter spacing */
-      color: #4F69F6;
-      -webkit-text-stroke: 3px #000;
-      text-shadow: 3px 3px 0 #000;
-      transition: transform 0.2s ease-out;
+      transition: transform 0.15s ease;
       will-change: transform;
     }
 
-    /* ===== BELOW LOGO ===== */
-
-    .content-below-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin-top: -6px;
-      font-family: "SpencerFont", sans-serif;
+    .title span:hover {
+      transform: translateY(-6px) rotate(-2deg);
     }
 
+    /* ================= TEXT ================= */
     .new-subheader-text {
       font-size: 1rem;
       margin-bottom: 6px;
@@ -100,12 +106,14 @@
       font-size: 0.95rem;
       line-height: 1.5;
       max-width: 720px;
-      padding: 0 10px;
+      margin-bottom: 1rem;
       text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
     }
 
+    /* ================= BUTTONS ================= */
     .explore-button-row {
-      margin-top: 12px;
+      margin-top: 10px;
+      margin-bottom: -12px;
     }
 
     .sub-button-row {
@@ -133,27 +141,18 @@
       color: #aaa;
       padding: 10px 0;
       width: 100%;
-      margin-top: auto;
-      font-family: "SpencerFont", sans-serif;
+      margin-top: -50px;
     }
 
+    /* ================= MOBILE ================= */
     @media (max-width: 768px) {
-      .logo span {
-        -webkit-text-stroke: 2px #000;
-        text-shadow: 2px 2px 0 #000;
-      }
-
-      .new-subheader-text {
-        font-size: 0.85rem;
-      }
-
-      .bio-text {
-        font-size: 0.85rem;
-      }
-
       .button-img {
         height: 260px;
         max-width: 95%;
+      }
+
+      footer {
+        margin-top: -30px;
       }
     }
   </style>
@@ -162,80 +161,42 @@
 <body>
   <main class="content">
 
-    <!-- TEXT LOGO -->
-    <div class="logo" id="logo">
-      <div class="logo-line">SPENCER</div>
-      <div class="logo-line">DEWBURY</div>
+    <h1 class="title">
+      <span>S</span><span>P</span><span>E</span><span>N</span><span>C</span><span>E</span><span>R</span><br>
+      <span>D</span><span>E</span><span>W</span><span>B</span><span>U</span><span>R</span><span>Y</span>
+    </h1>
+
+    <p class="new-subheader-text">
+      Music Journalist. News. Celebrity Interviews.
+    </p>
+
+    <p class="bio-text">
+      I'm Spencer Dewbury — a published journalist with a pulse on underground music,
+      local news, and the voices shaping internet culture.
+    </p>
+
+    <div class="explore-button-row">
+      <a href="portfolio.html">
+        <img src="explore_button_equalized.png" alt="Explore My Work" class="button-img">
+      </a>
     </div>
 
-    <div class="content-below-logo">
-      <p class="new-subheader-text">Music Journalist. News. Celebrity Interviews.</p>
-      <p class="bio-text">
-        I'm Spencer Dewbury: Published journalist with a pulse on music journalism,
-        local news coverage, and conversations with the voices shaping culture.
-      </p>
-
-      <div class="explore-button-row">
-        <a href="portfolio.html">
-          <img src="explore_button_equalized.png" alt="Explore My Work" class="button-img" />
-        </a>
-      </div>
-
-      <div class="sub-button-row">
-        <a href="about.html">
-          <img src="about_button_cleaned.png" alt="About Me" class="button-img" />
-        </a>
-        <a href="contact.html">
-          <img src="contact_button_cleaned.png" alt="Contact" class="button-img" />
-        </a>
-        <a href="blog.html">
-          <img src="blog_button.png" alt="Read My Blog" class="button-img" />
-        </a>
-      </div>
+    <div class="sub-button-row">
+      <a href="about.html">
+        <img src="about_button_cleaned.png" alt="About Me" class="button-img">
+      </a>
+      <a href="contact.html">
+        <img src="contact_button_cleaned.png" alt="Contact" class="button-img">
+      </a>
+      <a href="blog.html">
+        <img src="blog_button.png" alt="Blog" class="button-img">
+      </a>
     </div>
+
   </main>
 
   <footer>
     &copy; 2025 Spencer Dewbury — All rights reserved.
   </footer>
-
-  <!-- LETTER INTERACTION SCRIPT -->
-  <script>
-    const logo = document.getElementById("logo");
-    const spans = [];
-
-    logo.querySelectorAll(".logo-line").forEach(line => {
-      const text = line.textContent;
-      line.textContent = "";
-
-      [...text].forEach(char => {
-        const span = document.createElement("span");
-        span.textContent = char === " " ? "\u00A0" : char;
-        line.appendChild(span);
-        spans.push(span);
-      });
-    });
-
-    document.addEventListener("mousemove", e => {
-      spans.forEach(letter => {
-        const rect = letter.getBoundingClientRect();
-        const lx = rect.left + rect.width / 2;
-        const ly = rect.top + rect.height / 2;
-
-        const dx = lx - e.clientX;
-        const dy = ly - e.clientY;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 85) {
-          const force = (85 - dist) / 5.5;
-          const x = (dx / dist) * force;
-          const y = (dy / dist) * force;
-          letter.style.transform = `translate(${x}px, ${y}px)`;
-        } else {
-          letter.style.transform = "translate(0, 0)";
-        }
-      });
-    });
-  </script>
 </body>
 </html>
