@@ -14,6 +14,13 @@
       font-style: normal;
     }
 
+    @font-face {
+      font-family: "SpencerFont";
+      src: url("SpencerFont-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
     * {
       box-sizing: border-box;
       image-rendering: pixelated;
@@ -29,7 +36,7 @@
       background-size: cover, 200px 200px;
       background-repeat: no-repeat, repeat;
       background-attachment: fixed;
-      font-family: "Ughing", sans-serif;
+      font-family: "SpencerFont", sans-serif;
       color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -49,20 +56,23 @@
     /* ===== TEXT LOGO ===== */
 
     .logo {
-      margin-top: 2.5rem;
-      line-height: 0.9;
+      margin-top: 2.2rem;
+      line-height: 0.82; /* tighter vertical spacing */
       user-select: none;
+      font-family: "Ughing", sans-serif;
     }
 
     .logo-line {
       display: block;
       white-space: nowrap;
+      margin: 0;
     }
 
     .logo span {
       display: inline-block;
       font-size: clamp(3.5rem, 8vw, 5.5rem);
-      color: #4F69F6; /* exact blue */
+      letter-spacing: -0.05em; /* tighter letter spacing */
+      color: #4F69F6;
       -webkit-text-stroke: 3px #000;
       text-shadow: 3px 3px 0 #000;
       transition: transform 0.2s ease-out;
@@ -76,7 +86,8 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-top: -10px;
+      margin-top: -6px;
+      font-family: "SpencerFont", sans-serif;
     }
 
     .new-subheader-text {
@@ -123,6 +134,7 @@
       padding: 10px 0;
       width: 100%;
       margin-top: auto;
+      font-family: "SpencerFont", sans-serif;
     }
 
     @media (max-width: 768px) {
@@ -214,8 +226,8 @@
         const dy = ly - e.clientY;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 90) {
-          const force = (90 - dist) / 5;
+        if (dist < 85) {
+          const force = (85 - dist) / 5.5;
           const x = (dx / dist) * force;
           const y = (dy / dist) * force;
           letter.style.transform = `translate(${x}px, ${y}px)`;
