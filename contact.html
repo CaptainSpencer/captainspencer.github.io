@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Spencer Dewbury</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    @font-face {
+      font-family: "SpencerFont";
+      src: url("SpencerFont-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --snow-blue: #b6d7f7;
+      --frost-white: #e9faff;
+      --ice-accent: #88c3f1;
+      --frosty-dark: #1a2a38;
+      --font-pixel: "SpencerFont", sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      font-family: var(--font-pixel);
+      background: url('contact-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--frost-white);
+    }
+
+    header {
+      background: rgba(26, 42, 56, 0.9);
+      border-bottom: 3px solid var(--ice-accent);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    header strong {
+      font-size: clamp(0.65rem, 2.5vw, 0.9rem);
+      color: var(--snow-blue);
+      text-shadow: 1px 1px #000;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    nav a {
+      color: var(--frost-white);
+      text-decoration: none;
+      font-size: clamp(0.5rem, 1.8vw, 0.65rem);
+      padding: 5px 8px;
+      border: 2px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-color: var(--ice-accent);
+      background-color: rgba(136, 195, 241, 0.15);
+    }
+
+    .container {
+      background-color: rgba(10, 20, 30, 0.7);
+      border: 2px solid #4e88ac;
+      box-shadow: 0 0 10px rgba(136, 195, 241, 0.3);
+      max-width: 600px;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .contact-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .contact-text {
+      flex: 1;
+    }
+
+    .button-wrapper {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .sprite {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .sprite img {
+      width: clamp(120px, 25vw, 256px);
+      height: auto;
+      image-rendering: pixelated;
+      display: block;
+    }
+
+    p {
+      font-size: clamp(0.55rem, 1.8vw, 0.65rem);
+      line-height: 1.7;
+      color: var(--frost-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .pixel-button {
+      display: inline-block;
+      background-color: #2b4f6a;
+      color: var(--snow-blue);
+      padding: 10px 16px;
+      border: 2px solid var(--ice-accent);
+      text-decoration: none;
+      box-shadow: 2px 2px #000;
+      font-size: clamp(0.55rem, 1.8vw, 0.65rem);
+    }
+
+    .pixel-button:hover {
+      background-color: var(--ice-accent);
+      color: #1a2a38;
+    }
+
+    footer {
+      text-align: center;
+      font-size: clamp(0.4rem, 1.5vw, 0.5rem);
+      color: #d2f0ff;
+      background-color: rgba(26, 42, 56, 0.85);
+      padding: 1.5rem;
+      border-top: 3px solid var(--ice-accent);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .container {
+        margin: 1rem auto;
+        padding: 1.2rem;
+      }
+
+      .contact-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .sprite {
+        order: -1; /* show sprite above text on mobile */
+      }
+
+      .sprite img {
+        width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <strong>Spencer Dewbury</strong>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="contact-flex">
+      <div class="contact-text">
+        <p>Interested in working together, setting up an interview, or just want to say hi?</p>
+        <div class="button-wrapper">
+          <a href="mailto:dewburyspencer@gmail.com" class="pixel-button">EMAIL ME</a>
+        </div>
+      </div>
+      <div class="sprite">
+        <img src="contact_sprite.png" alt="Spencer contact sprite">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Spencer Dewbury — All rights reserved.
+  </footer>
+
+</body>
+</html>

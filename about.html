@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Spencer Dewbury</title>
+  <link rel="icon" href="favicon.png">
+
+  <style>
+    @font-face {
+      font-family: "SpencerFont";
+      src: url("SpencerFont-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --forest-dark: #081f1d;
+      --mushroom-glow: #61e294;
+      --text-glow: #c5f9e5;
+      --border-brown: #3e1f0e;
+      --font-pixel: "SpencerFont", sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      font-family: var(--font-pixel);
+      background: url('about-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-glow);
+    }
+
+    header {
+      background: rgba(8, 31, 29, 0.85);
+      border-bottom: 3px solid var(--mushroom-glow);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    header strong {
+      font-size: clamp(0.65rem, 2.5vw, 0.9rem);
+      color: var(--mushroom-glow);
+      text-shadow: 1px 1px #000;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    nav a {
+      color: var(--text-glow);
+      text-decoration: none;
+      font-size: clamp(0.5rem, 1.8vw, 0.65rem);
+      padding: 5px 8px;
+      border: 2px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-color: var(--mushroom-glow);
+      background-color: rgba(97, 226, 148, 0.15);
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.65);
+      border: 3px solid var(--border-brown);
+      box-shadow: 0 0 12px rgba(97, 226, 148, 0.3);
+      max-width: 680px;
+      width: 90%;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      flex: 1;
+    }
+
+    h1 {
+      color: var(--mushroom-glow);
+      font-size: clamp(0.85rem, 3vw, 1.2rem);
+      text-shadow: 2px 2px #000;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .about-flex {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-text {
+      max-width: 520px;
+      width: 100%;
+    }
+
+    p {
+      font-size: clamp(0.55rem, 1.8vw, 0.65rem);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      color: var(--text-glow);
+    }
+
+    .pixel-button {
+      display: inline-block;
+      background-color: #244d45;
+      color: var(--mushroom-glow);
+      padding: 10px 16px;
+      border: 2px solid var(--mushroom-glow);
+      text-decoration: none;
+      box-shadow: 2px 2px #000;
+      margin-top: 1rem;
+      font-size: clamp(0.55rem, 1.8vw, 0.65rem);
+    }
+
+    .pixel-button:hover {
+      background-color: var(--mushroom-glow);
+      color: #081f1d;
+    }
+
+    .button-wrapper {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: clamp(0.4rem, 1.5vw, 0.5rem);
+      color: #9be3c4;
+      background-color: rgba(8, 31, 29, 0.85);
+      padding: 1.5rem;
+      border-top: 3px solid var(--mushroom-glow);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .container {
+        margin: 1rem auto;
+        padding: 1.2rem;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <strong>Spencer Dewbury</strong>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>About Me</h1>
+    <div class="about-flex">
+      <div class="about-text">
+        <p>I'm a freelance journalist covering underground music, internet culture, and local stories that matter. My work ranges from artist interviews and scene reporting to long-form features, with a focus on voice, honesty, and the details that give subcultures their shape.</p>
+        <p>In my free time, I listen to underground rap and get lost in internet culture and current events.</p>
+        <div class="button-wrapper">
+          <a href="portfolio.html" class="pixel-button">SEE MY WORK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Spencer Dewbury — All rights reserved.
+  </footer>
+
+</body>
+</html>

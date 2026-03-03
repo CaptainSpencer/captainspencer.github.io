@@ -1,0 +1,13 @@
+/* styles.css */
+
+body {
+  cursor: url('cursor.png') 0 0, auto;
+  background-color: #e9faff;
+  font-family: 'Press Start 2P', cursive;
+  color: #1a2a38;
+}
+
+/* Optional styling for links, buttons, etc */
+a, button {
+  cursor: url('cursor.png') 0 0, pointer;
+}
