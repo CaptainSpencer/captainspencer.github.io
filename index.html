@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spencer Dewbury | Home</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    @font-face {
+      font-family: "Ughing";
+      src: url("Ughing-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "SpencerFont";
+      src: url("SpencerFont-Regular.ttf") format("truetype");
+    }
+
+    * {
+      box-sizing: border-box;
+      image-rendering: pixelated;
+    }
+
+    body {
+      margin: 0;
+      background-color: #0d1b2a;
+      background-image:
+        url('pixel_banner.png'),
+        url('https://www.transparenttextures.com/patterns/stardust.png');
+      background-size: cover, 200px 200px;
+      background-repeat: no-repeat, repeat;
+      background-attachment: fixed;
+      font-family: "SpencerFont", sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .content {
+      max-width: 900px;
+      width: 90%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      margin-top: 2.2rem;
+      line-height: 0.82;
+      user-select: none;
+      font-family: "Ughing", sans-serif;
+    }
+
+    .logo-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      display: inline-block;
+      font-size: clamp(2.2rem, 10vw, 5.5rem);
+      letter-spacing: -0.05em;
+      color: #7088fc;
+      -webkit-text-stroke: 3px #000;
+      text-shadow: 3px 3px 0 #000;
+      transition: transform 0.2s ease-out;
+      will-change: transform;
+    }
+
+    .content-below-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: -6px;
+    }
+
+    .new-subheader-text {
+      font-size: clamp(0.55rem, 2.5vw, 1rem);
+      margin-bottom: 6px;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+      padding: 0 12px;
+    }
+
+    .bio-text {
+      font-size: clamp(0.55rem, 2.2vw, 0.95rem);
+      line-height: 1.5;
+      max-width: 720px;
+      padding: 0 16px;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+    }
+
+    .explore-button-row {
+      margin-top: 18px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .explore-link {
+      font-family: "Ughing", sans-serif;
+      text-decoration: none;
+      display: inline-block;
+      user-select: none;
+    }
+
+    .explore-main,
+    .explore-sub {
+      display: block;
+      letter-spacing: -0.03em;
+      color: #7088fc;
+      -webkit-text-stroke: 2px #fff;
+      text-shadow: 3px 3px 0 #000;
+    }
+
+    .explore-main {
+      font-size: clamp(1.2rem, 5vw, 2.6rem);
+      margin-bottom: -6px;
+    }
+
+    .explore-sub {
+      font-size: clamp(1rem, 4vw, 2.1rem);
+    }
+
+    .explore-main span,
+    .explore-sub span {
+      display: inline-block;
+      transition: transform 0.2s ease-out;
+      will-change: transform;
+    }
+
+    .sub-button-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: -20px;
+      width: 100%;
+      padding: 0 8px;
+    }
+
+    .button-img {
+      height: clamp(100px, 28vw, 300px);
+      max-width: 100%;
+      transition: transform 0.1s ease-out;
+      display: block;
+    }
+
+    .button-img:hover {
+      transform: translateY(-10px);
+    }
+
+    .about-button {
+      transform: translateY(28px);
+    }
+
+    footer {
+      text-align: center;
+      font-size: clamp(0.45rem, 1.5vw, 0.7rem);
+      color: #aaa;
+      padding: 10px 0;
+      width: 100%;
+      margin-top: auto;
+      font-family: "SpencerFont", sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .logo {
+        margin-top: 1.2rem;
+      }
+
+      .logo span {
+        -webkit-text-stroke: 2px #000;
+        text-shadow: 2px 2px 0 #000;
+      }
+
+      .sub-button-row {
+        margin-top: 12px;
+        gap: 10px;
+      }
+
+      /* Remove the vertical offset on mobile so buttons line up */
+      .about-button {
+        transform: translateY(0);
+      }
+
+      footer {
+        padding: 14px 8px;
+        margin-top: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="content">
+    <div class="logo">
+      <div class="logo-line">SPENCER</div>
+      <div class="logo-line">DEWBURY</div>
+    </div>
+
+    <div class="content-below-logo">
+      <p class="new-subheader-text">Music Journalist. News. Celebrity Interviews.</p>
+      <p class="bio-text">
+        I'm Spencer Dewbury: Published journalist with a pulse on music journalism,
+        local news coverage, and conversations with the voices shaping culture.
+      </p>
+
+      <div class="explore-button-row">
+        <a href="portfolio.html" class="explore-link" id="explore">
+          <span class="explore-main">EXPLORE MY WORK</span>
+          <span class="explore-sub">PORTFOLIO!</span>
+        </a>
+      </div>
+
+      <div class="sub-button-row">
+        <a href="about.html">
+          <img src="about_button_cleaned.png" alt="About Me" class="button-img about-button" />
+        </a>
+        <a href="contact.html">
+          <img src="contact_button_cleaned.png" alt="Contact" class="button-img" />
+        </a>
+        <a href="blog.html">
+          <img src="blog_button.png" alt="Read My Blog" class="button-img" />
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Spencer Dewbury — All rights reserved.
+  </footer>
+
+  <script>
+    function split(el) {
+      const spans = [];
+      const text = el.textContent;
+      el.textContent = "";
+      [...text].forEach(char => {
+        const s = document.createElement("span");
+        s.textContent = char === " " ? "\u00A0" : char;
+        el.appendChild(s);
+        spans.push(s);
+      });
+      return spans;
+    }
+
+    const animated = [];
+    document.querySelectorAll(".logo-line").forEach(l => { animated.push(...split(l)); });
+    document.querySelectorAll(".explore-main, .explore-sub").forEach(l => { animated.push(...split(l)); });
+
+    // Only run mouse repulsion on non-touch screens
+    if (window.matchMedia("(hover: hover)").matches) {
+      document.addEventListener("mousemove", e => {
+        animated.forEach(letter => {
+          const r = letter.getBoundingClientRect();
+          const dx = r.left + r.width / 2 - e.clientX;
+          const dy = r.top + r.height / 2 - e.clientY;
+          const d = Math.hypot(dx, dy);
+          if (d < 90) {
+            const f = (90 - d) / 6;
+            letter.style.transform = `translate(${dx / d * f}px, ${dy / d * f}px)`;
+          } else {
+            letter.style.transform = "translate(0,0)";
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
